@@ -1,29 +1,21 @@
 # eX_tX_pX_sX 
 
 def resultado(candidado):
+    global result
     for i in range(len(candidado)):
         e = candidado[i][0]
         t = candidado[i][1]
         p = candidado[i][2]
         s = candidado[i][3]
 
-        result_cand.append(f'e{e}_t{t}_p{p}_s{s}')
-        
-        print(f'{i+1}ª Candidato: e{e}_t{t}_p{p}_s{s}')
+        result.append(f'e{e}_t{t}_p{p}_s{s}')
+        print(result)
+        return result
 
-        return result_cand
-    
 
-def busca():
-    
-    busca = [input('e_ '),
-             input('t_ '),
-             input('p_ '),
-             input('s_ '),
-             ]
-    return busca
 
-result_cand = []
+#///////////////////PRINCIPAL///////////////////////////
+result = []
 candidato = []
 while True:
     lista = [int(input('Nota para Entrevista: ')),
@@ -38,14 +30,14 @@ while True:
     if resposta == 'n':
         break
 
-print('\n Quais notas gostaria de pesquisar?'
-          '\n e_ Entrevista'
-          '\n t_ Teste Teórico'
-          '\n p_ Teste Prático'
-          '\n s_ Avaliação de Soft Skill')
-busca()
+# print('\n Quais notas gostaria de pesquisar?'
+#           '\n e_ Entrevista'
+#           '\n t_ Teste Teórico'
+#           '\n p_ Teste Prático'
+#           '\n s_ Avaliação de Soft Skill')
+
 
 resultado(candidato)
 
-# print(f'e{}')
-print(result_cand)
+print(result)
+
