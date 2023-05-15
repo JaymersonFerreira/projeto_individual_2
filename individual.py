@@ -40,8 +40,8 @@ def aprovados(criterios, candidato):
 
 
 lista_aprovados = []
-result = []
 candidato = []
+result = []
 pos = 1
   
 titulo('Quais são as notas:')
@@ -55,7 +55,7 @@ while True:
     candidato.append(notas[:])
     notas.clear
 
-    resposta = input('Quer continuar? ').lower()[0]
+    resposta = input('Quer continuar? [N] para sair: ').lower()[0]
     if resposta == 'n':
         break
     print()
