@@ -1,5 +1,6 @@
 def mensagem(msg):
         print('-' * 30) 
+        print()
         print(f'\033[34m{msg}\033[m')  
         print('-' * 30)
 
@@ -29,7 +30,7 @@ def resultado(criterios, candidato):
             if 0 < criterios[i] <= candidato[j][i]:
                 cont += 1
             if cont == 4:
-                lista_aprovados.append(f'{j+1}ª Candidato: e{e}_t{t}_p{p}_s{s}')
+                lista_aprovados.append(f'{j+1}ª Candidato: e{candidato[j][0]}_t{candidato[j][1]}_p{candidato[j][2]}_s{candidato[j][3]}')
 
      
     mensagem('Lista dos aprovados:')
