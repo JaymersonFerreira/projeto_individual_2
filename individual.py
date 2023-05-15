@@ -35,6 +35,8 @@ def aprovados(criterios, candidato):
     for ap in range(len(lista_aprovados)):
         print(f'{lista_aprovados[ap][:13]:.<18}', end='')
         print(f'{lista_aprovados[ap][13:]}')
+    if len(lista_aprovados) == 0:
+        print('\033[31mNão há aprovados!\033[m')
 
 
 lista_aprovados = []
@@ -59,7 +61,7 @@ while True:
     print()
     pos +=1
    
-mensagem('Quais são Critério:')
+mensagem('Quais são os Critérios:')
    
 criterios = [int(input('e_ Entrevista: ')),
              int(input('t_ Teste Teórico: ')),
