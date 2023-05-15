@@ -4,8 +4,7 @@ def mensagem(msg):
         print(f'\033[34m{msg}\033[m')  
         print('-' * 30)
 
-
-def resultado(criterios, candidato):
+def lista_candidato(candidato):
     global result, lista_aprovados
     for i in range(len(candidato)):
         e = candidato[i][0]
@@ -15,13 +14,15 @@ def resultado(criterios, candidato):
 
         result.append(f'{i+1}ª Candidato: e{e}_t{t}_p{p}_s{s}')
         
-    mensagem('Candidatos:')  
+    mensagem('Lista de Candidatos:')  
     
     for c in range(len(result)):
         print(f'{result[c][:13]:.<18}', end='')
         print(f'{result[c][13:]}')
     
-    for j in range(len(result)):
+
+def aprovados(criterios, candidato):
+    for j in range(len(candidato)):
         cont = 0
         for i in range(0, 4):
             if 0 < criterios[i] <= candidato[j][i]:
@@ -65,7 +66,8 @@ criterios = [int(input('e_ Entrevista: ')),
              int(input('p_ Teste Prático: ')),
              int(input('s_ Soft Skill: '))]
 
-resultado(criterios, candidato)
+lista_candidato(candidato)
 
+aprovados(criterios, candidato)
 
 
