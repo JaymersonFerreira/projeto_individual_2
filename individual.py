@@ -1,4 +1,4 @@
-def mensagem(msg):
+def titulo(msg):
         print('-' * 30) 
         print()
         print(f'\033[34m{msg}\033[m')  
@@ -14,7 +14,7 @@ def lista_candidato(candidato):
 
         result.append(f'{i+1}ª Candidato: e{e}_t{t}_p{p}_s{s}')
         
-    mensagem('Lista de Candidatos:')  
+    titulo('Lista de Candidatos:')  
     
     for c in range(len(result)):
         print(f'{result[c][:13]:.<18}', end='')
@@ -30,7 +30,7 @@ def aprovados(criterios, candidato):
             if cont == 4:
                 lista_aprovados.append(f'{j+1}ª Candidato: e{candidato[j][0]}_t{candidato[j][1]}_p{candidato[j][2]}_s{candidato[j][3]}')
 
-    mensagem('Lista dos aprovados:')
+    titulo('Lista dos aprovados:')
      
     for ap in range(len(lista_aprovados)):
         print(f'{lista_aprovados[ap][:13]:.<18}', end='')
@@ -44,7 +44,7 @@ result = []
 candidato = []
 pos = 1
   
-mensagem('Quais são as notas:')
+titulo('Quais são as notas:')
    
 while True:
     print(f'{pos}ª Candidato:')
@@ -61,7 +61,7 @@ while True:
     print()
     pos +=1
    
-mensagem('Quais são os Critérios:')
+titulo('Quais são os Critérios:')
    
 criterios = [int(input('e_ Entrevista: ')),
              int(input('t_ Teste Teórico: ')),
