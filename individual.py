@@ -1,3 +1,9 @@
+def mensagem(msg):
+        print('-' * 30) 
+        print(f'\033[34m{msg}\033[m')  
+        print('-' * 30)
+
+
 def resultado(criterios, candidato):
     global result, lista_aprovados
     for i in range(len(candidato)):
@@ -7,42 +13,44 @@ def resultado(criterios, candidato):
         s = candidato[i][3]
 
         result.append(f'{i+1}ª Candidato: e{e}_t{t}_p{p}_s{s}')
+        
 
-    print('-' * 30) 
-    print('\033[34mCandidatos\033[m')  
-    print('_' * 30) 
+    mensagem('Candidatos:')  
+    
 
-    for c in range(len(candidato)):
-        print(f'{result[c][:13]:.<15}', end='')
-        print(f'{result[c][13:]:.>15}')
+    for c in range(len(result)):
+        print(f'{result[c][:13]:.<18}', end='')
+        print(f'{result[c][13:]}')
       
     
-    for j in range(len(candidato)):
+    for j in range(len(result)):
         cont = 0
         for i in range(0, 4):
             if 0 < criterios[i] <= candidato[j][i]:
                 cont += 1
             if cont == 4:
-                lista_aprovados.append(f'{j+1}ª Candidato: e{e}_t{t}_p{p}_s{s} APROVADO')
+                lista_aprovados.append(f'{j+1}ª Candidato: e{e}_t{t}_p{p}_s{s}')
 
-    print('-' * 30)  
-    print('\033[34mLista dos aprovados\033[m')
-    print('_' * 30)  
+     
+    mensagem('Lista dos aprovados:')
+     
 
     for ap in range(len(lista_aprovados)):
         print(f'{lista_aprovados[ap][:13]:.<18}', end='')
-        print(f'{lista_aprovados[ap][13:25]}')
+        print(f'{lista_aprovados[ap][13:]}')
 
 
 lista_aprovados = []
 result = []
 candidato = []
+pos = 1
 
-print('-' * 30)    
-print('\033[34mQuais são as notas:\033[m')
-print('_' * 30)    
+   
+mensagem('Quais são as notas:')
+   
 
 while True:
+    print(f'{pos}ª Candidato:')
     notas = [int(input('Nota para Entrevista: ')),
             int(input('Nota para Teste Teorico: ')),
             int(input('Nota para Teste Prático: ')),
@@ -54,10 +62,11 @@ while True:
     if resposta == 'n':
         break
     print()
+    pos +=1
 
-print('-' * 30)    
-print('\033[34mQuais são Critério:\033[m')
-print('_' * 30)    
+   
+mensagem('Quais são Critério:')
+   
 
 criterios = [int(input('e_ Entrevista: ')),
              int(input('t_ Teste Teórico: ')),
